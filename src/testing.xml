@@ -1,0 +1,14 @@
+<!-- This xml is used to execute all the TestNg classes -->
+
+<suite name="TestNg Automation suite">
+   <test name="Execute all TesNG class files">
+     
+     <classes>
+       <class name="com.TestNG.GoogleTest" /><!-- name=package name followed by file name -->
+       <class name="com.TestNG.InvocationCountTest" />
+       <class name="com.TestNG.TestNGFeatures" />
+       <class name="com.TestNG.TestNgBasics" />
+     </classes>
+   
+   </test>
+</suite>

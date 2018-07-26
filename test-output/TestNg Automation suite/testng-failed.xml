@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TestNg Automation suite]">
+  <test thread-count="5" name="Execute all TesNG class files(failed)">
+    <classes>
+      <class name="com.TestNG.TestNGFeatures">
+        <methods>
+          <include name="Login"/>
+          <include name="homepage"/>
+          <include name="sompage"/>
+        </methods>
+      </class> <!-- com.TestNG.TestNGFeatures -->
+      <class name="com.TestNG.GoogleTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="title"/>
+        </methods>
+      </class> <!-- com.TestNG.GoogleTest -->
+    </classes>
+  </test> <!-- Execute all TesNG class files(failed) -->
+</suite> <!-- Failed suite [TestNg Automation suite] -->

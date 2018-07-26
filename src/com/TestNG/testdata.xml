@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" > <!-- this is must to run the testNG class directly  -->
+
+<suite name="GamilSuite">
+  <test name="GmailTest">
+  
+   <parameter name="url" value="https://gmail.com/"/>
+   <parameter name="emailId" value="test@gamil.com" />
+   
+   <classes>
+      <class name="com.TestNG.ParameterTest"/>
+   </classes>
+  
+  </test>
+
+
+
+</suite>

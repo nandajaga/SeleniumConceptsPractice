@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- This XML file can be auto generated , right click on the TestNG class 
+	file for which parallel execution need to be done and TestNG-convert to TestNG -->
+
+<suite thread-count="3" name="Suite" parallel="methods">
+	<test thread-count="3" name="Test" parallel="methods">
+		<classes>
+			<class name="com.TestNG.parallelExecution.ParallelExecutionBrowser" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

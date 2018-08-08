@@ -5,6 +5,7 @@ import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.os.WindowsUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class IeDriverTest {
@@ -18,7 +19,7 @@ public class IeDriverTest {
 		capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
 		capabilities.setCapability("ie.ensureCleanSession", true);
 		capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);		
-		String driverpath="src/Drivers/IEDriverServer.exe";
+		String driverpath="C://Users//ab54030//Documents//My Received Files//IEDriverServer.exe";
 		System.setProperty("webdriver.ie.driver",driverpath);
 		InternetExplorerDriver driver= new InternetExplorerDriver(capabilities);
 		
@@ -63,8 +64,11 @@ public class IeDriverTest {
 		driver.findElement(By.id("login-password")).sendKeys(("test@123"));
 		driver.findElement(By.id("login-submit")).click();
 
-		System.out.println("After Login click title is: " + driver.getTitle());				
+		System.out.println("After Login click title is: " + driver.getTitle());	
+		
+		
 		driver.close();
+		driver.quit();
 	}
 
 }

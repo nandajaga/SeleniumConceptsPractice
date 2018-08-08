@@ -26,7 +26,7 @@ public class WindowHandlesConcept {
 		System.out.println("Parent Window is :"+parentwindow);
 		
 		String childwindow= it.next();
-		System.out.println("Parent Window is :"+childwindow);
+		System.out.println("child Window is :"+childwindow);
 		
 		driver.switchTo().window(childwindow); //switch to child 
 		System.out.println("Child Window title is:"+ driver.getTitle() );

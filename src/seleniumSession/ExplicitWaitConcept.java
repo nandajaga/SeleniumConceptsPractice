@@ -1,10 +1,14 @@
 package seleniumSession;
 
+import static org.testng.Assert.assertTrue;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,14 +22,22 @@ public class ExplicitWaitConcept {
 		driver.manage().window().maximize();
 		
 		driver.get("https://www.facebook.com/");
-		
-		//clickOn(driver, driver.findElement(By.xpath("//input[contains(@value, 'Log In')]")), 20); //login btn			
+
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		//1.
+		wait.until(ExpectedConditions.titleContains("selenium"));
+		//Verify Title
+		assertTrue(driver.getTitle().toLowerCase().
+		startsWith("selenium"));
 				
-		System.out.println("done");
+	   //2.
+		WebElement message = (new WebDriverWait(driver, 5))
+				.until(new ExpectedCondition<WebElement>(){
+				@Override
+				public WebElement apply(WebDriver d) {
+				return d.findElement(By.id("page4"));
+				}});
 	}
 
-	//this method is used only for click operations --> below method not worked 
-	/*public static void clickOn(WebDriver driver, WebElement locator, int timeout){
-		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(locator));
-	}*/ 
+	
 }

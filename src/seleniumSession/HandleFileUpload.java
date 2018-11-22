@@ -13,7 +13,7 @@ public class HandleFileUpload {
 		driver.get("https://html.com/input-type-file/");
 		
 		//file upload- find the locator for Browse btn and then send keys--> local file path
-		//this works only when type is FILE in HTML 	
+		//this works only when type is FILE in DOM 	
 		driver.findElement(By.xpath("//*[@id='fileupload']")).sendKeys("C://Users//ab54030//Desktop//NandaSelenium//Test.txt");
 	
 		/* FILE upload pop up --Browse button (type= FILE, Sendkeys(path)*/

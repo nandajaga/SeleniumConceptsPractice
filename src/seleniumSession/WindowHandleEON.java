@@ -236,7 +236,8 @@ public class WindowHandleEON {
 	    Thread.sleep(3000);	
 	    driver.switchTo().frame("entry_pane");
 	    System.out.println("Switched to Entry pane \n");
-	    
+	    Thread.sleep(3000);	
+
 	    //Select the Product 
 	   WebElement product= driver.findElement(By.name("newItemType"));
 	   fn_Select(product, "Private Line");
@@ -384,7 +385,8 @@ public class WindowHandleEON {
 	    Thread.sleep(3000);	
 	    driver.switchTo().frame("entry_pane");
 	    System.out.println("Switched to Entry pane \n");
-	    
+	    Thread.sleep(3000);	
+
 	    //complete on click(Admin), start, Refresh
 	    driver.findElement(By.id("main:completeOnClick")).click();
 	   
@@ -398,11 +400,11 @@ public class WindowHandleEON {
 	    //check order completion starts 
 	    
 	    
-	    ArrayList<String> tasks=new ArrayList<>();
+	   /* ArrayList<String> tasks=new ArrayList<>();
 	    tasks.add("Check Order");
 	    tasks.add("Setup Billing");
 	    tasks.add("Notify Customer - Order");
-	    tasks.add("Design POP-to-POP");
+	    tasks.add("Design POP-to-POP");*/
 	    
 	    String[] tasks1= {"Check Order","Setup Billing","Notify Customer - Order","Design POP-to-POP","Issue TR (A)","Issue TR (Z)","Build Connection (Z)",
 	    		"Build Connection (A)", "Notify Customer - GC Ready", "Update Billing"};
@@ -412,7 +414,7 @@ public class WindowHandleEON {
 	    for(String task:tasks1) {
 		   System.out.println(task);
       
-	       (new WebDriverWait(driver, 5)).until(new ExpectedCondition<WebElement>(){
+	       (new WebDriverWait(driver, 8)).until(new ExpectedCondition<WebElement>(){
 	    		   @Override
 	    		   public WebElement apply(WebDriver d) {
 	    		   return d.findElement(By.linkText(task));
@@ -493,7 +495,7 @@ public class WindowHandleEON {
 		}
 	
 		//to send email 
-		@AfterTest
+		@Test(dependsOnMethods="testpopup")
 		public void sendEmail() {
 		DateFormat dfobj = new SimpleDateFormat("MM/dd/yyyy");
 
@@ -588,7 +590,7 @@ public class WindowHandleEON {
 
 	                        "</td></tr>\n"+                                 
 
-	                        "<tr><td colspan = 2 align= left valign=middle style=background-color:#195C19;color:#FFFFFF;><font face= verdana size =1><center>Scripted By: Nanda Kumar(AB54030)</center></face></td></tr>\n"+
+                            "<tr><b><td colspan = 2 align= left valign=middle style=background-color:#9ACD32;color:#000000;><font face= verdana size =1><center>Scripted By: Nanda Kumar(AB54030)</center></face></td></b></tr>\n"+
 
 	                        "</table>\n"+
 

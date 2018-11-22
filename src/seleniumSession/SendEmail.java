@@ -99,7 +99,7 @@ public class SendEmail
 
                         "</td></tr>\n"+                                 
 
-                        "<tr><td colspan = 2 align= left valign=middle style=background-color:#195C19;color:#FFFFFF;><font face= verdana size =1><center>Scripted By: Saurabh Kumar (SXKUM64)</center></face></td></tr>\n"+
+                        "<tr><b><td colspan = 2 align= left valign=middle style=background-color:#9ACD32;color:#000000;><font face= verdana size =1><center>Scripted By: Saurabh Kumar (SXKUM64)</center></face></td></b></tr>\n"+
 
                         "</table>\n"+
 

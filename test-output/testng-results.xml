@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1754" started-at="2018-08-08T09:53:15Z" finished-at="2018-08-08T09:53:17Z">
+  <suite name="Default suite" duration-ms="20904" started-at="2018-10-09T14:07:54Z" finished-at="2018-10-09T14:08:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1754" started-at="2018-08-08T09:53:15Z" finished-at="2018-08-08T09:53:17Z">
-      <class name="seleniumSession.WindowHandleEON">
-        <test-method status="PASS" signature="sendEmail()[pri:0, instance:seleniumSession.WindowHandleEON@1a1d6a08]" name="sendEmail" duration-ms="1738" started-at="2018-08-08T09:53:15Z" finished-at="2018-08-08T09:53:17Z">
+    <test name="Default test" duration-ms="20904" started-at="2018-10-09T14:07:54Z" finished-at="2018-10-09T14:08:15Z">
+      <class name="seleniumSession.ScreenshotParticularElement">
+        <test-method status="PASS" signature="screenShotElement()[pri:0, instance:seleniumSession.ScreenshotParticularElement@c46bcd4]" name="screenShotElement" duration-ms="20859" started-at="2018-10-09T14:07:54Z" finished-at="2018-10-09T14:08:15Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- sendEmail -->
-      </class> <!-- seleniumSession.WindowHandleEON -->
+        </test-method> <!-- screenShotElement -->
+      </class> <!-- seleniumSession.ScreenshotParticularElement -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -71,6 +71,10 @@ public class DynamicWebTableHandle {
 • Efficient and fast */ // first row check box, 2nd row has text 'avc sd' , to clcik on the check box in 1st row below xpath 
 	    driver.findElement(By.xpath("//a[contains(text(),'avc sd')]/parent::td//preceding-sibling::td//input[@name='contact_id']")).click();
 	    driver.findElement(By.xpath("(//a[contains(text(),'David Cris')]/parent::td//preceding-sibling::td//input[@name='contact_id'])[1]")).click();
+	   
+	    //to find element like suppose we have 4 columns,and in column it contains text from there it need to find the xpath
+	    //in forward direction like 6th column
+	  //td[contains(text(),'Trigger Mediation')]//parent::td/following-sibling::td[contains(@title,'Activity Status:')]
 	    }
 	}
 

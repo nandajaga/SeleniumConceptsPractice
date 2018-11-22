@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="seleniumSession.SendEmail">
+      <class name="seleniumSession.ScreenshotParticularElement">
         <methods>
-          <include name="sendEnail"/>
+          <include name="screenShotElement"/>
         </methods>
-      </class> <!-- seleniumSession.SendEmail -->
+      </class> <!-- seleniumSession.ScreenshotParticularElement -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

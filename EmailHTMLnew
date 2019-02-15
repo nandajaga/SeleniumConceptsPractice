@@ -1,0 +1,184 @@
+SimpleDateFormat sdobj = new SimpleDateFormat("MM/dd/yyyy 'at' hh:mm aa z");
+
+		Date dateobj = new Date();
+
+		sdobj.setTimeZone(TimeZone.getTimeZone("IST"));
+
+		System.out.println(sdobj.format(dateobj));
+
+		System.out.println("Sending Order Details in email...");
+
+		InetAddress ip;
+
+		String hostname = null;
+
+		String hostIPAddress = null;
+
+		try {
+
+			ip = InetAddress.getLocalHost();
+
+			hostname = ip.getHostName();
+
+			hostIPAddress =ip.getHostAddress();
+
+		} catch (UnknownHostException e) {
+
+			e.printStackTrace();
+
+		}
+
+		java.util.Properties props = new java.util.Properties();
+
+		props.put("mail.smtp.host", "mailgate.uswc.uswest.com");
+
+		Session session = Session.getDefaultInstance(props, null);
+
+		//String from = currentUserEmailID;
+		String from="nnanda.kumar@centurylink.com";
+
+		String subject = "NETWORX - ORDER ASSEMBLY Automation "+Product+" "+TestType+" Testing Passed in "+currentTestEnv+"_" + sdobj.format(dateobj);
+
+		Message msg = new MimeMessage(session);
+
+		try {       
+
+			msg.setFrom(new InternetAddress(from));
+			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("nnanda.kumar@centurylink.com"));
+			//msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("qoatest@centurylink.com,qoadvoff@CenturyLink.com"));
+
+			//msg.setRecipients(Message.RecipientType.CC, InternetAddress.parse("Vivek.Jain@CenturyLink.com,Keith.Lamle@CenturyLink.com,Srinivas.Vodnala@centurylink.com,Praveen.K.Chinni@centurylink.com,Rupesh.Singh@centurylink.com,Praveen_Direct_Reports@CenturyLink.com"));
+
+			msg.setSubject(subject);
+
+			MimeMultipart multipart = new MimeMultipart("related");
+
+			BodyPart msgBodyPart = new MimeBodyPart();
+
+			String htmlText = "<html>\n" +
+
+	                            "<Head></head>\n"+
+
+	                            "<body>\n"+
+
+	                            "<pr>Hi All,</pr>\n"+
+
+	                            "<br><br>\n"+
+
+	                            "<pr>NETWORX - ORDER ASSEMBLY Automation \n"+Product+" \n"+TestType+" Testing passed in \n"+currentTestEnv+". Please find the order details as below,</pr>\n"+
+
+	                            "<br><br>\n"+
+
+	                            "<b><u>Order Details:</u></b>\n"+
+
+	                            "<br><br>\n"+
+
+	                            "<table border= 2 cellpadding= 2 cellspacing= 0>\n"+
+
+	                            "<tr><td colspan = 2>\n"+
+
+	                            "<img  align =center src=\"cid:CTLgovernmentLogo\" alt = Scripted By: Saurabh Kumar(SXKUM64) title = Scripted By: Saurabh Kumar(SXKUM64) border =2 bordercolor = #006600>\n"+
+
+	                            "</td></tr>\n"+                                 
+
+	                            "<tr><td align= left valign=top style=background-color:#006600;color:#FFFFFF;>Product Name</td><td align= left valign=top style=background-color:#FFEBD6;color:#000000;>" +Product+ "</td></tr>\n"+
+
+	                            "<tr><td align= left valign=top style=background-color:#006600;color:#FFFFFF;>Contract Type</td><td align= left valign=top style=background-color:#FFEBD6;color:#000000;>" + Contract+"</td></tr>\n"+
+
+	                            "<tr><td align= left valign=top style=background-color:#006600;color:#FFFFFF;>Request ID</td><td align= left valign=top style=background-color:#FFEBD6;color:#000000;>" +requestID+ "</td></tr>\n"+
+
+	                            "<tr><td align= left valign=top style=background-color:#006600;color:#FFFFFF;>OES ID</td><td align= left valign=top style=background-color:#FFEBD6;color:#000000;>" +oesID+ "</td></tr>\n"+
+
+	                            "<tr><td align= left valign=top style=background-color:#006600;color:#FFFFFF;>UBI</td><td align= left valign=top style=background-color:#FFEBD6;color:#000000;>" +ubi+"</td></tr>\n"+
+
+	                            "<tr><td align= left valign=top style=background-color:#006600;color:#FFFFFF;>Status</td><td align= left valign=top style=background-color:#FFEBD6;color:#000000;>"+ orderStatus+"</td></tr>\n"+
+
+	                            "<tr><td colspan = 2 align= left valign=middle style=background-color:#195C19;color:#FFFFFF;><font face= verdana size =1><center>Scripted By: Saurabh Kumar (SXKUM64)</center></face></td></tr>\n"+
+
+	                            "</table>\n"+
+
+	                            "<br>\n"+
+
+	                            "<br>\n"+
+
+	                            "<img  align =center src=\"cid:OrderDetails\" alt = Email Code By: Saurabh Kumar(SXKUM64) title = Scripted By: Saurabh Kumar(SXKUM64) border =2 bordercolor = #006600>\n"+
+
+	                            "<br>\n"+
+
+	                            "<br>\n"+
+
+								"<pr>*** Implementation of CTL-STAF framework for NETWORX - ORDER ASSEMBLY application is done by:<i><b> Saurabh Kumar(SXKUM64)</b></i> and scenarios contribution by:<i><b> Praveen_Direct_Reports@CenturyLink.com</b></i> ***</p>\n"+
+
+								"<br>\n"+
+
+								"<pr>***<i><b>Chinni, Praveen K: PROJECT LEAD - TESTING; Jain, Vivek: Offshore, TECHNICAL MANAGER - TESTING; Lemle, Keith: Onshore, MGR IT TESTING</b></i> ***</p>\n"+
+
+	                            "<br>\n"+
+
+								"<pr>Host System Name & IP Addresss on which Sanity script ran are\n"+ hostname +"<text>, </text>\n" + hostIPAddress+"</p>\n"+
+
+								"<br>\n"+
+
+	                            "<pr>***serenity-cucumber-archetype using Selenium 3.10.0, JUnit and Cucumber-JVM with CTL-STAF as dependency***</p>\n"+
+
+	                            "<br>\n"+
+
+								"<pr><i><b>Note</b></i>*:</p>\n"+								
+
+								"<pr><ul><li>If the order status has not moved to confirmed status then check for the status manually and email to appropriate teams to resolve the issue.</li><li>This sanity mail is a result of automatically triggered sanity build from corporate jenkins and a seperate cucumber-jvm report - configured in corporate jenkins goes to only few recipients.</li></ul></p>\n"+							
+
+	                            "<br>\n"+
+
+	                            "<br>\n"+
+
+	                            "<br>\n"+
+
+								"<br>\n"+
+
+	                            "<pr>Regards,</pr>\n"+
+
+	                            "<br>\n"+
+
+	                            "<pr>\n"+currentUserName+"</pr>\n"+
+
+	                            "</body>\n"+
+
+	                            "</html>";                         
+
+			msgBodyPart.setContent(htmlText, "text/html");
+			multipart.addBodyPart(msgBodyPart);
+
+			Map<String, String> mapinlineImages = new HashMap<String, String>();
+			mapinlineImages.put("CTLgovernmentLogo", System.getProperty("user.dir") +"/src/test/resources/CTLgovernmentLogo.jpg");
+			mapinlineImages.put("OrderDetails", System.getProperty("user.dir") +"/target/NETOAOrderDetails-cropped.jpg");
+
+			if (mapinlineImages != null && mapinlineImages.size() > 0) {
+				Set<String> setImageID = mapinlineImages.keySet();
+
+				for (String contentId : setImageID) {
+					MimeBodyPart imagePart = new MimeBodyPart();
+					imagePart.setHeader("Content-ID", "<" + contentId + ">");
+					imagePart.setDisposition(MimeBodyPart.INLINE);
+
+					String imageFilePath = mapinlineImages.get(contentId);
+					try {
+						imagePart.attachFile(imageFilePath);
+					} catch (IOException ex) {
+						ex.printStackTrace();
+					}
+
+					multipart.addBodyPart(imagePart);
+				}
+			}
+
+			msg.setContent(multipart);
+			Transport.send(msg);
+
+			System.out.println("Sent message successfully....");
+
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+
+
+	}
